@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Car Price</title>
+
+
+
+
+</head>
+<body>
+
+<h1>Car Price Prediction System</h1>
+
+<h3>Please enter Details</h3>
+
+        <form action="predict_price" method="post" enctype="multipart/form-data">
+{% csrf_token %}
+
+            <h2>Car Price Prediction System for Cars in Sri Lanka</h2>
+
+            <div class="col-md-4 col-sm-4"><label for="First">Year of Manufacture</label></div>
+            <input id="first" name="Year" type="number" required="required" class="input"><br>
+
+            <div class="col-md-4 col-sm-4"><label for="second">Mileage (km)</label></div>
+			<input id="second" name="Mileage" type="number" required="required" class="input">
+
+            <div class="col-md-4 col-sm-4"><label for="third">Engine Capacity (cc)</label></div>
+			<input id="third" name="Engine_Capacity" type="number" required="required" class="input">
+
+            <div class="col-md-4 col-sm-4"><label for="fourth">Transmission</label></div>
+			<select name="Transmission" id="fourth" required="required" class="input">
+                <option value="Automatic">Automatic</option>
+            </select>
+
+            <div class="col-md-4 col-sm-4"><label for="fifth">Fuel type</label></div>
+			<select name="Fuel_Type" id="fifth" required="required" class="input">
+                <option value="Petrol">Petrol</option>
+                <option value="Hybrid">Hybrid</option>
+            </select>
+
+            <div class="col-md-4 col-sm-4"><label for="sixth">Brand</label></div>
+			<select name="Brand" id="sixth" required="required" class="input">
+                <option value="Honda">Honda</option>
+                <option value="Toyota">Toyota</option>
+            </select>
+
+            <br>
+			<br>
+			<button id="sub" type="submit " class="input">Calculate Price</button>
+            <br>
+
+
+
+
+        </form>
+
+{% if priceval %}
+<h1>The predicted price is LKR {{priceval}} - {{ pricelakhs }} LAKHS  </h1>
+
+{% endif %}
+
+</body>
+</html>
